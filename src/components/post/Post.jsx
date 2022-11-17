@@ -6,15 +6,27 @@ import RepeatRoundedIcon from '@mui/icons-material/RepeatRounded';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import IosShareOutlinedIcon from '@mui/icons-material/IosShareOutlined';
 import MoreHorizRoundedIcon from '@mui/icons-material/MoreHorizRounded';
-import {
-    // useDispatch,
-     useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useNavigate } from 'react-router-dom';
+import * as React from 'react';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import ListItemText from '@mui/material/ListItemText';
+import ListItemIcon from '@mui/material/ListItemIcon';
+
 
 const Post = () => {
     const tweets = useSelector((state) => state.stories.tweets);
     const navigate = useNavigate();
-    // const dispatch = useDispatch();
+    const [anchorEl, setAnchorEl] = React.useState(null);
+    const open = Boolean(anchorEl);
+    const handleClick = (event) => {
+        setAnchorEl(event.currentTarget);
+    };
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
+
     console.log(tweets);
     return (
         <div>
@@ -42,13 +54,40 @@ const Post = () => {
                             <div className="post__footer">
                                 <ChatBubbleOutlineIcon fontSize="small" className="ChatBubbleOutlineIcon"
                                     onClick={() => navigate(`/${tweet.id}`)} />
-                                <RepeatRoundedIcon fontSize="small" className="RepeatRoundedIcon"/>
-                                <FavoriteBorderIcon fontSize="small" className="FavoriteBorderIcon"/>
-                                <IosShareOutlinedIcon fontSize="small" className="IosShareOutlinedIcon"/>
+                                <RepeatRoundedIcon fontSize="small" className="RepeatRoundedIcon" />
+                                <FavoriteBorderIcon fontSize="small" className="FavoriteBorderIcon" />
+                                <IosShareOutlinedIcon fontSize="small" className="IosShareOutlinedIcon" />
                             </div>
                         </div>
                         <div>
-                            <MoreHorizRoundedIcon className="MoreHorizRounded"/>
+                            <MoreHorizRoundedIcon
+                                className="MoreHorizRounded"
+                                id="demo-positioned-button"
+                                aria-controls={open ? 'demo-positioned-menu' : undefined}
+                                aria-haspopup="true"
+                                aria-expanded={open ? 'true' : undefined}
+                                onClick={handleClick}
+                            />
+                            <Menu
+                                id="demo-positioned-menu"
+                                aria-labelledby="demo-positioned-button"
+                                anchorEl={anchorEl}
+                                open={open}
+                                onClose={handleClose}
+                                anchorOrigin={{
+                                    vertical: 'top',
+                                    horizontal: 'left',
+                                }}
+                                transformOrigin={{
+                                    vertical: 'top',
+                                    horizontal: 'left',
+                                }}
+                            >
+                                <MenuItem onClick={handleClose}>Delete</MenuItem>
+                                <MenuItem onClick={handleClose}>Pin to your profile</MenuItem>
+                                <MenuItem onClick={handleClose}>Embed Tweet</MenuItem>
+                                <MenuItem onClick={handleClose}>View Tweet Analytics</MenuItem>
+                            </Menu>
                         </div>
                     </div>
                 )
