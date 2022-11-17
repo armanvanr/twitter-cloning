@@ -1,0 +1,67 @@
+.post {
+    display: flex;
+    align-items: flex-start;
+    border-bottom: 1px solid var(--twitter-background);
+    padding-bottom: 10px;
+}
+
+.post__body>img {
+    border-radius: 20px;
+    max-width: 480px;
+}
+
+.post__footer {
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    margin-top: 10px;
+    margin-inline: auto;
+    cursor: pointer !important;
+    margin-left: auto;
+}
+
+.post__headerText>h3 {
+    font-size: 5px;
+    margin-bottom: 5px;
+}
+
+.post__badge {
+    font-size: 14px !important;
+    color: var(--twitter-color);
+}
+
+.post__headerSpecial {
+    font-weight: 600;
+    font-size: 15px;
+    color: gray;
+}
+
+.post__avatar {
+    padding: 20px;
+}
+
+.ChatBubbleOutlineIcon:hover {
+    color: var(--twitter-color);
+}
+
+.RepeatRoundedIcon:hover {
+    color: var(--twiter-reply);
+}
+
+.FavoriteBorderIcon:hover {
+    color: var(--twitter-like);
+}
+
+.IosShareOutlinedIcon:hover {
+    color: var(--twitter-share);
+}
+
+.MoreHorizRounded {
+    cursor: pointer !important;
+    margin-left: auto !important;
+    margin-top: 20px !important;
+}
+
+.MoreHorizRounded:hover {
+    color: var(--twitter-share);
+}

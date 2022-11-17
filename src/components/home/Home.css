@@ -1,13 +1,10 @@
 body {
     --twitter-color: #50b7f5;
     --twitter-background: #e6ecf0;
-    --twiter-reply: #1ec968;
-    --twitter-like: #ff0e62;
-    --twitter-share: #50b7f5;
 }
 
-.app {
-    display: flex;
+.home {
+    display: flex !important;
     height: 100vh;
     max-width: 1300px;
     margin-right: auto;
