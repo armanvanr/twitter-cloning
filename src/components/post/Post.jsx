@@ -6,6 +6,10 @@ import RepeatRoundedIcon from '@mui/icons-material/RepeatRounded';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import IosShareOutlinedIcon from '@mui/icons-material/IosShareOutlined';
 import MoreHorizRoundedIcon from '@mui/icons-material/MoreHorizRounded';
+import DeleteOutlinedIcon from '@mui/icons-material/DeleteOutlined';
+import PushPinOutlinedIcon from '@mui/icons-material/PushPinOutlined';
+import CodeOutlinedIcon from '@mui/icons-material/CodeOutlined';
+import BarChartSharpIcon from '@mui/icons-material/BarChartSharp';
 import { useSelector } from "react-redux";
 import { useNavigate } from 'react-router-dom';
 import * as React from 'react';
@@ -83,10 +87,38 @@ const Post = () => {
                                     horizontal: 'left',
                                 }}
                             >
-                                <MenuItem onClick={handleClose}>Delete</MenuItem>
-                                <MenuItem onClick={handleClose}>Pin to your profile</MenuItem>
-                                <MenuItem onClick={handleClose}>Embed Tweet</MenuItem>
-                                <MenuItem onClick={handleClose}>View Tweet Analytics</MenuItem>
+                                <MenuItem onClick={handleClose} >
+                                    <ListItemIcon>
+                                        <DeleteOutlinedIcon className="DeleteMenu"/>
+                                    </ListItemIcon>
+                                    <ListItemText className="DeleteMenu">
+                                        Delete
+                                    </ListItemText>
+                                </MenuItem>
+                                <MenuItem onClick={handleClose}>
+                                    <ListItemIcon>
+                                        <PushPinOutlinedIcon />
+                                    </ListItemIcon>
+                                    <ListItemText>
+                                        Pin to your profile
+                                    </ListItemText>
+                                </MenuItem>
+                                <MenuItem onClick={handleClose}>
+                                    <ListItemIcon>
+                                        <CodeOutlinedIcon />
+                                    </ListItemIcon>
+                                    <ListItemText>
+                                        Embed Tweet
+                                    </ListItemText>
+                                </MenuItem>
+                                <MenuItem onClick={handleClose}>
+                                    <ListItemIcon>
+                                        <BarChartSharpIcon />
+                                    </ListItemIcon>
+                                    <ListItemText>
+                                        View Tweet Analytics
+                                    </ListItemText>
+                                </MenuItem>
                             </Menu>
                         </div>
                     </div>
